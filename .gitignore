@@ -1,0 +1,10 @@
+# junk
+.DS_Store
+.env
+
+# dependancies
+/node_modules
+.vercel
+
+# misc
+package-lock.json
