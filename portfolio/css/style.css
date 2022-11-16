@@ -1,3 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
 body {
   background-color: #fdadbe;
+}
+
+footer {
+  font-family: "Roboto", sans-serif;
+}
+
+footer > p {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.nounderline {
+  text-decoration: none;
 }
