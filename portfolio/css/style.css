@@ -7,6 +7,10 @@ body {
 
 footer {
   font-family: "Roboto", sans-serif;
+  /* may cause problems later */
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
 footer > p {
@@ -16,4 +20,8 @@ footer > p {
 
 .nounderline {
   text-decoration: none;
+}
+
+section > p {
+  font-family: "Space Mono", monospace;
 }
