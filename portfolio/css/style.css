@@ -1,27 +1,31 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-@import url("https://fonts.cdnfonts.com/css/vcr-osd-mono?styles=17275");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
 
 html,
 body {
   background-color: #fdadbe;
   margin: 0;
   height: 100%;
+  scroll-behavior: smooth;
 }
 
 nav {
-  display: flex;
-  background-color: #638596;
-  width: 100%;
-  text-align: center;
+  padding: 1px;
   font-family: "Space Mono", monospace;
   font-size: 1rem;
 }
 
-nav > ul > li > a {
+a {
   text-decoration: none;
   color: inherit;
-  padding: 0.3rem;
+  padding: 0.5rem;
+}
+
+a:hover {
+  transition: 0.2s;
+  color: #fdadbe;
+  font-weight: bold;
 }
 
 li {
@@ -30,22 +34,31 @@ li {
 
 .cover {
   /*background-color: #638596; */
-  height: 50%;
+  height: 100%;
   background-image: url("../media/image1.png");
   background-color: #638596;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 20%;
+  background-size: 20rem;
 }
 
 footer {
   font-family: "Roboto", sans-serif;
   margin: auto;
   text-align: center;
-  /* specifics*/
+  /* dev */
   height: 100%;
 }
 
 .nounderline {
   text-decoration: none;
+}
+
+@media (max-width: 500px) {
+  nav {
+    display: none;
+  }
+  .cover {
+    display: none;
+  }
 }
