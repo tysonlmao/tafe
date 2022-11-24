@@ -2,6 +2,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
 
+:root {
+  --main-background: #fdadbe;
+  --other-background: #638596;
+}
+
 html,
 body {
   background-color: #fdadbe;
@@ -10,38 +15,42 @@ body {
   scroll-behavior: smooth;
 }
 
-nav {
-  padding: 1px;
-  font-family: "Space Mono", monospace;
-  font-size: 1rem;
-}
-
 a {
   text-decoration: none;
   color: inherit;
   padding: 0.5rem;
 }
 
-a:hover {
+/* header includes
+
+the nav
+and cover image */
+nav {
+  padding: 1px;
+  font-family: "Space Mono", monospace;
+  font-size: 1rem;
+}
+
+.hover:hover {
   transition: 0.2s;
   color: #fdadbe;
   font-weight: bold;
 }
 
-li {
+nav > ul > li {
   display: inline;
 }
 
 .cover {
-  background-color: #638596;
+  background-color: var(--other-background);
   height: 100%;
-  background-image: url("../media/image1.png");
-  background-color: #638596;
+  /* background-image: url("../media/image1.png"); */
   background-position: center;
   background-repeat: no-repeat;
   background-size: 20rem;
 }
 
+/* main content */
 main {
   padding: 1rem;
   display: flex;
@@ -55,13 +64,13 @@ main {
   margin: 1px;
 }
 
+/* footer */
 footer {
   font-family: "Roboto", sans-serif;
   margin: auto;
   text-align: center;
   /* to add scrolling for dev*/
-  height: 100%;
-  display: none;
+  height: 1rem;
 }
 
 .nounderline {
