@@ -44,7 +44,7 @@ nav > ul > li {
 .cover {
   background-color: var(--other-background);
   height: 100%;
-  /* background-image: url("../media/image1.png"); */
+  background-image: url("../media/image1.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: 20rem;
@@ -59,9 +59,26 @@ main {
 
 .container {
   width: 33%;
-  /* display: inline; */
+  display: inline;
   border: 2px solid black;
   margin: 1px;
+}
+
+.container .item {
+  border: 1px solid black;
+
+  position: relative;
+  display: block;
+  font-family: "Space Mono", monospace;
+  font-size: 0.8rem;
+  margin: 1rem;
+  background-color: var(--other-background);
+  padding: 1rem;
+}
+
+.conttl {
+  font-family: "Roboto", sans-serif;
+  /* font-size: 1rem; */
 }
 
 /* footer */
@@ -69,8 +86,6 @@ footer {
   font-family: "Roboto", sans-serif;
   margin: auto;
   text-align: center;
-  /* to add scrolling for dev*/
-  height: 1rem;
 }
 
 .nounderline {
@@ -78,11 +93,18 @@ footer {
 }
 
 @media (max-width: 500px) {
-  /* dev */
-  nav {
-    display: none;
-  }
   .cover {
+    height: 50%;
+  }
+  .container {
+    width: 100%;
+    display: grid;
+    position: absolute;
+  }
+  .item {
+  }
+
+  .footer {
     display: none;
   }
 }
