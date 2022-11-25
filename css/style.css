@@ -44,7 +44,7 @@ nav > ul > li {
 .cover {
   background-color: var(--other-background);
   height: 100%;
-  background-image: url("../media/image1.png");
+  background-image: url("../media/test.gif");
   background-position: center;
   background-repeat: no-repeat;
   background-size: 20rem;
