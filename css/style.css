@@ -26,6 +26,12 @@ a {
   display: flex;
   justify-content: center;
 }
+
+.screenreader {
+  /* display: none; 
+  ???
+  */
+}
 /* header includes
 
 the nav
@@ -164,7 +170,7 @@ table.scoresheet tr:nth-child(2) td:last-child {
 /* footer */
 footer {
   font-family: "Roboto", sans-serif;
-  position: absolute;
+  /* position: absolute; */
   /* bottom: 0; */
   width: 100%;
   text-align: center;
@@ -177,5 +183,8 @@ footer {
 }
 
 @media (max-width: 500px) {
-
+  .container {
+    width: 100%;
+    display: flex;
+  }
 }
