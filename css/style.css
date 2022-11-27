@@ -60,9 +60,8 @@ nav > ul > li {
 }
 
 .container {
-  width: 33%;
+  width: 40%;
   display: inline;
-  border: 2px solid black;
   /* background-color: #638596; */
   margin: 1px;
   box-sizing: border-box;
@@ -146,20 +145,4 @@ footer {
 }
 
 @media (max-width: 500px) {
-  .cover {
-    height: 50%;
-  }
-  .container {
-    width: 100%;
-    display: grid;
-    position: absolute;
-  }
-
-  .footer {
-    display: none;
-  }
-
-  table.scoresheet {
-    width: 90%;
-  }
 }
