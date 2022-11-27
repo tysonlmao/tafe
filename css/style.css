@@ -191,4 +191,11 @@ footer {
   .info {
     flex-flow: column;
   }
+  .center {
+    justify-content: center;
+    display: block;
+  }
+  .mobhid {
+    display: none;
+  }
 }
