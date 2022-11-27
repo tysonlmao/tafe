@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Fragment+Mono&display=swap');
 
 :root {
   --main-background: #fdadbe;
@@ -86,13 +87,16 @@ nav > ul > li {
 }
 
 .neofetch {
-  display: inline-block;
-  border: 10px solid var(--other-background);
-  width: 100%;
+  /* width: 100%; */
 }
 
 .neoc {
   display: inline-block;
+  width: initial;
+  width: 35%;
+  align-items: center;
+  justify-content: center;
+  font-family: "Fragment Mono", monospace !important;
 }
 
 .bowl {
@@ -155,5 +159,4 @@ footer {
 }
 
 @media (max-width: 500px) {
- 
 }
