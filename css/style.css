@@ -186,5 +186,9 @@ footer {
 @media (max-width: 500px) {
   .container {
     width: 100%;
+    display: block;
+  }
+  .info {
+    flex-flow: column;
   }
 }
