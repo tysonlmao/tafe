@@ -37,6 +37,11 @@ nav {
   background-color: #638596;
 }
 
+main {
+  position: relative;
+  min-height: 100vh;
+}
+
 .hover:hover {
   transition: 0.2s;
   color: #fdadbe;
@@ -105,7 +110,7 @@ nav > ul > li {
 
 .neoc {
   width: 40%;
-  border: none !important;  
+  border: none !important;
 }
 
 .bowl {
@@ -159,8 +164,12 @@ table.scoresheet tr:nth-child(2) td:last-child {
 /* footer */
 footer {
   font-family: "Roboto", sans-serif;
-  margin: auto;
+  position: absolute;
+  /* bottom: 0; */
+  width: 100%;
   text-align: center;
+  border: 10px solid red;
+  display: block;
 }
 
 .nounderline {
@@ -168,4 +177,5 @@ footer {
 }
 
 @media (max-width: 500px) {
+
 }
