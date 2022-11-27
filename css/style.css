@@ -85,6 +85,16 @@ nav > ul > li {
   padding: 1rem;
 }
 
+.neofetch {
+  display: inline-block;
+  border: 10px solid var(--other-background);
+  width: 100%;
+}
+
+.neoc {
+  display: inline-block;
+}
+
 .bowl {
   background-color: var(--other-background);
   height: 100%;
@@ -145,4 +155,5 @@ footer {
 }
 
 @media (max-width: 500px) {
+ 
 }
