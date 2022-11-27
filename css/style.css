@@ -62,7 +62,7 @@ nav > ul > li {
 .container {
   width: 33%;
   display: inline;
-  /* border: 2px solid black; */
+  border: 2px solid black;
   /* background-color: #638596; */
   margin: 1px;
   box-sizing: border-box;
@@ -84,6 +84,15 @@ nav > ul > li {
   font-family: "Roboto", sans-serif;
   /* font-size: 1rem; */
   padding: 1rem;
+}
+
+.bowl {
+  background-color: var(--other-background);
+  height: 100%;
+  background-image: url("../media/204.jpeg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 20rem;
 }
 
 /* table */
