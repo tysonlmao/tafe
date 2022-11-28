@@ -1,0 +1,14 @@
+html {
+  font-size: 1rem;
+}
+
+body {
+  background-color: olive;
+  color: white;
+}
+
+@media speech {
+  code {
+    speak: literal-punctuation; /* Reads all punctuation out loud in iOS VoiceOver */
+  }
+}
