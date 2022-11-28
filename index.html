@@ -20,9 +20,6 @@
                     <li><a href="mailto:tyson@tysonlmao.dev">Email</a></li>
                 </ul>
             </nav>
-            <header>
-                <h1>page title</h1>
-            </header>
         </div>
     </header>
     <main id="page-content" role="main">
@@ -60,20 +57,95 @@
                 </li>
             </ul>
         </section>
-
-        <section id="about" class="container" role="contentinfo">
-            <img src="./media/windows.png" alt="Microsoft Windows 11 logo">
+        <section id="neofetch" class="container" role="contentinfo">
+            <figure>
+                <img src="./media/windows.png" alt="Microsoft Windows 11 logo">
+            </figure>
+            <h2>Specifications</h2>
+            <table>
+                <caption>Neofetch system information</caption>
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Thing</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>OS:</td>
+                        <td>Windows 11 Pro [64-bit]</td>
+                    </tr>
+                    <tr>
+                        <td>Host:</td>
+                        <td>Micro-Star International Co., Ltd. MS-7C95</td>
+                    </tr>
+                    <tr>
+                        <td>Kernel:</td>
+                        <td>10.0.22621.0</td>
+                    </tr>
+                    <tr>
+                        <td>Motherboard:</td>
+                        <td>Micro-Star Interational Co., Ltd. B550M PRO-VDH (MS-7C95)</td>
+                    </tr>
+                    <tr>
+                        <td>Uptime:</td>
+                        <td>too long.</td>
+                    </tr>
+                    <tr>
+                        <td>Packages:</td>
+                        <td>3 (scoop)</td>
+                    </tr>
+                    <tr>
+                        <td>Shell:</td>
+                        <td>PowerShell v5.1.22621.608</td>
+                    </tr>
+                    <tr>
+                        <td>Resolution:</td>
+                        <td>1920x1080</td>
+                    </tr>
+                    <tr>
+                        <td>Terminal:</td>
+                        <td>Windows Terminal</td>
+                    </tr>
+                    <tr>
+                        <td>CPU:</td>
+                        <td>AMD Ryzen 5 5600 6-Core Processor</td>
+                    </tr>
+                    <tr>
+                        <td>GPU:</td>
+                        <td>NVIDIA GeForce GTX 1060 6GB</td>
+                    </tr>
+                    <tr>
+                        <td>Memory:</td>
+                        <td>6.96 GiB / 64 GiB (69%)</td>
+                    </tr>
+                    <tr>
+                        <td>Disk (C:):</td>
+                        <td>255 GiB / 464 GiB (54%)</td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
-
         <footer>
             <address>Written by <a href="mailto:someone@example.com">me</a></address>
         </footer>
     </main>
 
-    <aside></aside>
+    <aside id="sidebar" role="complementary">
+        <form action="https://google.com/search">
+            <fieldset>
+                <legend>
+                    Search google:
+                </legend>
+                <label for="search-query">Search</label><br>
+                <input type="text" id="search-query" name="q"><br>
+                <input type="submit" value="Search">
+            </fieldset>
+        </form>
+    </aside>
     <footer>
         <p>&copy; 2022&mdash;2023
-            <a href="#nav">tyson</a>
+            <a href="mailto:tyson@tysonlmao.dev">tyson</a>
         </p>
     </footer>
 </body>
