@@ -1,9 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
+/* 
+GLOBAL STYLES
+*/
 :root {
-  --main-background: #fdadbe;
-  --other-background: #638596;
+  --secondary: #fdadbe;
+  --link-text: #fdadbe;
+  --primary: #638596;
   --main-font: "Space Mono", monospace;
   --heading-font: "Roboto", sans-serif;
 }
@@ -13,19 +17,65 @@ html {
 }
 
 body {
-  background-color: var(--other-background);
+  background-color: var(--primary);
   font-family: var(--main-font);
-  color: #000;
   margin: 0;
   padding: 0;
 }
 
-.nav {
-  list-style: none;
+img {
+  max-width: 100%;
+  height: auto;
 }
 
-.nav li > a {
+a {
+  color: white;
+}
+
+a:hover {
+  transition: 0.2s ease-in-out;
+  color: var(--link-text);
+}
+.form-field {
+  width: 100%;
+  padding: 1ex;
+}
+
+.shadow {
+  background-color: #000044;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.navigation-bar {
+  /* background-color: black; */
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.navigation-bar .site-logo {
+  width: 5rem;
+}
+
+.navigation-bar .nav > li {
+  display: inline-block;
+}
+.nav > li > a {
   display: block;
+  padding: 0.5ex 1em;
+  text-decoration: none;
+  text-align: center;
+  line-height: 1;
+}
+
+.nav {
+  list-style: none;
+  padding-left: 0;
 }
 
 /* 
@@ -35,7 +85,7 @@ body {
   padding-left: 1rem;
   padding-right: 1rem;
   /* dev */
-  background-color: #00000099;
+  /* background-color: #00000099; */
 }
 @media screen and (min-width: 768px) {
   .container {
@@ -55,11 +105,6 @@ body {
     grid-template-columns: 25% 75%;
   }
 
-  .container-grid > * {
-    background-color: orange;
-    border: 2px solid black;
-  }
-
   .flex-center {
     justify-content: center;
     align-items: center;
@@ -74,17 +119,4 @@ body {
   width: 1px;
   height: 1px;
   overflow: hidden;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-@media speech {
-  code {
-    speak: literal-punctuation; /* Reads all punctuation out loud in iOS VoiceOver 
-    this got deprecated.
-    */
-  }
 }
