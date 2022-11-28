@@ -1,10 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fragment+Mono&display=swap");
+
+:root {
+  --main-background: #fdadbe;
+  --other-background: #638596;
+}
+
 html {
   font-size: 1rem;
 }
 
 body {
-  background-color: olive;
-  color: white;
+  background-color: #eee;
+  color: #333;
 }
 
 .screen-reader-only {
