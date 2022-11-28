@@ -1,0 +1,27 @@
+html {
+  font-size: 1rem;
+}
+
+body {
+  background-color: olive;
+  color: white;
+}
+
+.screen-reader-only {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+img {
+  max-width: 100%;
+}
+
+@media speech {
+  code {
+    speak: literal-punctuation; /* Reads all punctuation out loud in iOS VoiceOver */
+  }
+}
