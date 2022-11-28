@@ -1,11 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Fragment+Mono&display=swap");
 
 :root {
   --main-background: #fdadbe;
   --other-background: #638596;
+  --main-font: "Space Mono", monospace;
+  --heading-font: "Roboto", sans-serif;
 }
 
 html {
@@ -13,8 +13,58 @@ html {
 }
 
 body {
-  background-color: #eee;
-  color: #333;
+  background-color: var(--other-background);
+  font-family: var(--main-font);
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+.nav {
+  list-style: none;
+}
+
+.nav li > a {
+  display: block;
+}
+
+/* 
+  ------------// container classes //------------
+*/
+.container {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  /* dev */
+  background-color: #00000099;
+}
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 60rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .container-grid {
+    display: grid;
+    gap: 1rem;
+  }
+  .container-grid-50-50 {
+    grid-template-columns: repeat(2, 50%);
+  }
+  .container-grid-25-75 {
+    grid-template-columns: 25% 75%;
+  }
+
+  .container-grid > * {
+    background-color: orange;
+    border: 2px solid black;
+  }
+
+  .flex-center {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
 }
 
 .screen-reader-only {
@@ -28,10 +78,13 @@ body {
 
 img {
   max-width: 100%;
+  height: auto;
 }
 
 @media speech {
   code {
-    speak: literal-punctuation; /* Reads all punctuation out loud in iOS VoiceOver */
+    speak: literal-punctuation; /* Reads all punctuation out loud in iOS VoiceOver 
+    this got deprecated.
+    */
   }
 }
