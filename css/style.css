@@ -7,6 +7,7 @@ GLOBAL STYLES
 :root {
   --secondary: #fdadbe;
   --link-text: #fdadbe;
+  --dark-primary: #576f7a;
   --primary: #638596;
   --main-font: "Space Mono", monospace;
   --heading-font: "Roboto", sans-serif;
@@ -94,6 +95,11 @@ a:hover {
   /* dev */
   /* background-color: #00000099; */
 }
+
+.container-color {
+  background-color: var(--dark-primary);
+}
+
 @media screen and (min-width: 768px) {
   .container {
     max-width: 60rem;
