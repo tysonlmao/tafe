@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+/* 
+GLOBAL STYLES
+*/
+:root {
+  --secondary: #fdadbe;
+  --link-text: #fdadbe;
+  --dark-primary: #576f7a;
+  --primary: #638596;
+  --main-font: "Space Mono", monospace;
+  --heading-font: "Roboto", sans-serif;
+}
+
+html {
+  font-size: 1rem;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--primary);
+  font-family: var(--main-font);
+  margin: 0;
+  padding: 0;
+}
+
+.column {
+  float: left;
+  width: 50% !important;
+}
+
+.wrapper {
+  background-color: var(--secondary);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: white;
+}
+
+a:hover {
+  transition: 0.2s ease-in-out;
+  color: var(--link-text);
+}
+.form-field {
+  padding: 0.5ex;
+}
+
+.shadow {
+  background-color: #000044;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.navigation-bar {
+  /* background-color: black; */
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.navigation-bar .site-logo {
+  width: 5rem;
+}
+
+.navigation-bar .nav > li {
+  display: inline-block;
+}
+.nav > li > a {
+  display: block;
+  padding: 0.5ex 1em;
+  text-decoration: none;
+  line-height: 1;
+}
+
+.nav {
+  list-style: none;
+  padding-left: 0;
+}
+
+.container-color {
+  background-color: var(--dark-primary);
+}
+
+@media screen and (min-width: 768px) {
+  .column {
+    float: left;
+    width: 50% !important;
+  }
+
+  .container {
+    max-width: 60rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .container-grid {
+    display: grid;
+    gap: 1rem;
+  }
+  .container-grid-50-50 {
+    grid-template-columns: repeat(2, 50%);
+  }
+  .container-grid-25-75 {
+    grid-template-columns: 25% 75%;
+  }
+
+  .flex-center {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+}
+
+.screen-reader-only {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
