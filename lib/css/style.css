@@ -13,6 +13,14 @@ GLOBAL STYLES
   --heading-font: "Roboto", sans-serif;
 }
 
+.bg-dark-primary {
+  background-color: var(--dark-primary, black);
+}
+
+.bg-secondary {
+  background-color: var(--secondary, white);
+}
+
 html {
   font-size: 1rem;
   scroll-behavior: smooth;
@@ -98,7 +106,8 @@ a:hover {
 @media screen and (min-width: 768px) {
   .column {
     float: right;
-    width: 50% !important;
+    width: 50%;
+    background-color: var(--secondary);
   }
 
   .container {

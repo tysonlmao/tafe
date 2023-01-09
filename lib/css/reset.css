@@ -1,0 +1,28 @@
+html {
+  font-size: 16px;
+}
+
+section,
+article,
+aside,
+div,
+header,
+footer,
+main,
+nav {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+p,
+blockquote {
+  margin: auto;
+  margin-block: auto;
+}

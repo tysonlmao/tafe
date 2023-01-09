@@ -1,7 +1,8 @@
 import http.server
 import socketserver
 
-PORT = 6969
+print("select a port")
+PORT = input("port?: ")
 
 Handler = http.server.SimpleHTTPRequestHandler
 
