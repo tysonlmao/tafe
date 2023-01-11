@@ -25,7 +25,7 @@
                 <li><a href="/">Home</a></li>
                 <li><a href="/#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <!-- completely overlooked this  -->
+                <li><a href="/artboards/index.html">Artboards</a></li>
             </ul>
         </nav>
     </header>
@@ -45,6 +45,7 @@
             <section id="links" role="contentinfo" class="text-right center">
                 <header>
                     <h2>Links</h2>
+                    <!-- yes i know this isnt sitting right -->
                 </header>
                 <ul class="nav text-right">
                     <li>
@@ -143,15 +144,19 @@
     </main>
 
     <aside id="sidebar" role="complementary" class="container center-text container-color">
-        <form action="https://google.com/search">
+        <form onsubmit="alert('Thanks for signing up!');">
             <fieldset>
                 <legend>
-                    Search google:
+                    Sign up for the newsletter:
                 </legend>
                 <!-- <label for="empty">Search</label><br> -->
-                <label for="search-query">start typing...</label><br>
-                <input type="text" id="search-query" name="q" class="form-field"><br>
-                <input type="submit" value="Search">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+
+                <input type="submit" value="Sign up" class="form-field">
             </fieldset>
         </form>
     </aside>
