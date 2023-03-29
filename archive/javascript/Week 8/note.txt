@@ -1,0 +1,13 @@
+In this activity will examine the process of developing an app. We will also explore using parameters and API keys. We will look at loading data about movies from the following API.
+
+http://www.omdbapi.com/
+http://www.omdbapi.com/apikey.aspx
+
+We will use the following process to develop our app.
+
+Research
+Plan
+Concept Development (Wireframe + Design)
+Prototype
+Test
+Finalise
