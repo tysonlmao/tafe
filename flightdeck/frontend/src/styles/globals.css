@@ -17,3 +17,19 @@ html body {
     "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
     sans-serif;
 }
+
+.site-content {
+  margin: 2rem;
+  padding: 1rem;
+}
+
+.h-1 {
+  font-size: 1rem;
+  margin: 5px 0 5px 0;
+}
+
+.subtext-1 {
+  color: #a091a1;
+  font-size: 0.75rem;
+  margin: 0;
+}

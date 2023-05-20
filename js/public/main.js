@@ -28,5 +28,5 @@ document.addEventListener("DOMContentLoaded", () => {
      * 5/14/23
      */
     listLaunches();
-    
+
 });
