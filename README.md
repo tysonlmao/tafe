@@ -1,10 +1,13 @@
-# tafe codebase
-Here you can find most of the code written for completing the Certificate IV in IT (Web Development) at Holmesglen tafe.
-## Topics covered in this repo
-### 1. HTML & CSS
+# Certificate IV in IT (Web Development) @ Holmesglen Institute
 
-### 2. JavaScript
-- Coin flipper
-- Movie search
-- Colour changer
-- Pixabay search
+Welcome to the monorepo for my Certificate IV in IT (Web Development) at Holmesglen. A full documentation of what you can expect to find in here can be found [here](https://tafe.tysonlmao.dev).
+
+
+## Usage
+
+```bash
+git clone https://github.com/tysonlmao/tafe
+cd tafe
+python3 server.py
+
+```
