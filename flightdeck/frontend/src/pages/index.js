@@ -4,10 +4,10 @@ import styles from "../styles/modules/front.module.css";
 import Header from '@/components/header';
 
 export default function Home() {
-  function getStats() {
+  async function getStats() {
     try {
       const res = fetch("http://localhost:1000/api/launches");
-      const data = res.json();
+      const data = await res.json();
     } catch (error) {
       console.error(error);
       throw error;
@@ -28,7 +28,7 @@ export default function Home() {
         <div className="site-content">
           <h3>Next up</h3>
           <div className={styles.item}>
-            <p className={styles.subtext}></p>
+            <p className={styles.subtext}>LC-39A</p>
             <h3 className={styles.heading}>SpaceX Falcon 9</h3>
             <p className={styles.subtext}>April 26, 2023</p>
           </div>
