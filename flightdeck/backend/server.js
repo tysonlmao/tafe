@@ -24,7 +24,7 @@ app.get('/', async (req, res) => {
 });
 
 /* spaceX wants to go to mars - which is a barren dessert rock with no nandos ->so no one actually cares */
-app.get('/api/launches', async (req, res) => {
+app.get('/api/launches/', async (req, res) => {
     try {
         const data = await fetch('https://ll.thespacedevs.com/2.2.0/launch/upcoming/?mode=list&hide_recent_previous=true');
         const json = await data.json();
