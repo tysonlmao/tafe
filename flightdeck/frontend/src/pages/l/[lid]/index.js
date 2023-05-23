@@ -24,7 +24,7 @@ export default function launch() {
                             <p>...</p>
                         </div>
                         <div className="col">
-                            <p className="subtext-1 text-center">{}</p>
+                            <p className="subtext-1 text-center">{ }</p>
                             <h3 className={`${styles.value} text-center`}>72°F</h3>
                             <p className="subtext-1 text-center">Window</p>
                             <h3 className={`${styles.value} text-center`}>17:12 UTC</h3>

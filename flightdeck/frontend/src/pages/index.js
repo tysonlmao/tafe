@@ -1,16 +1,24 @@
 import Head from 'next/head';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from "../styles/modules/front.module.css";
 import Header from '@/components/header';
+import axios from 'axios';
+import Link from 'next/link';
 
 export default function Home() {
+  const [launches, setLaunches] = useState([]);
+
+  useEffect(() => {
+    getStats();
+  }, []);
+
   async function getStats() {
     try {
-      const res = fetch("http://localhost:1000/api/launches");
-      const data = await res.json();
+      const res = await axios.get("http://localhost:1000/api/launches");
+      setLaunches(res.data.results.slice(0, 5)); // Get the first 5 launches
     } catch (error) {
       console.error(error);
-      throw error;
+      // Handle the error here (e.g., set an error state)
     }
   }
 
@@ -27,22 +35,20 @@ export default function Home() {
         <Header />
         <div className="site-content">
           <h3>Next up</h3>
-          <div className={styles.item}>
-            <p className={styles.subtext}>LC-39A</p>
-            <h3 className={styles.heading}>SpaceX Falcon 9</h3>
-            <p className={styles.subtext}>April 26, 2023</p>
-          </div>
-          <div className={styles.item}>
-            <p className={styles.subtext}>LC-39A</p>
-            <h3 className={styles.heading}>SpaceX Falcon 9</h3>
-            <p className={styles.subtext}>April 26, 2023</p>
-          </div>
-
-          <div className={styles.item}>
-            <p className={styles.subtext}>LC-39A</p>
-            <h3 className={styles.heading}>SpaceX Falcon 9</h3>
-            <p className={styles.subtext}>April 26, 2023</p>
-          </div>
+          <br />
+          {launches.length > 0 ? (
+            launches.map((launch) => (
+              <Link href={`/l/${launch.id}`} className={styles.link}>
+                <div className={styles.item} key={launch.id}>
+                  <p className={styles.subtext}>{launch.lsp_name}</p>
+                  <h3 className={styles.heading}>{launch.name}</h3>
+                  <p className={styles.subtext}>{launch.window_start}</p>
+                </div>
+              </Link>
+            ))
+          ) : (
+            <p>Couldn't find anything.</p>
+          )}
         </div>
       </div>
     </>
