@@ -5,6 +5,8 @@ const NodeCache = require("node-cache");
 const app = express();
 const cache = new NodeCache();
 
+const url = "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?mode=list&hide_recent_previous=true";
+
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
@@ -17,21 +19,26 @@ app.get('/', async (req, res) => {
         const data = { "message": "spaceX wants to go to mars - which is a barren dessert rock with no nandos ->so no one actually cares" };
         res.send(data);
     } catch (error) {
-        res.status(500).json({ error: "you broke it." });
+        res.status(500).json({ error: "you broke it.", error });
     }
 });
 
-// const refreshInterval = 1000; // 1 second
+// const refreshInterval = 1000; // 1 second (debug)
 const refreshInterval = 60 * 60 * 1000; // an hour
 
 app.get('/api/launches/', async (req, res) => {
+    const timestamp = new Date().toISOString();
+
+    // logs to the console when a request to the route is made.
+    console.log(`${timestamp}: request /api/launches`);
+
     const cachedData = cache.get("bunny");
     if (cachedData) {
         return res.json(cachedData);
     }
 
     try {
-        const { data } = await axios.get('https://ll.thespacedevs.com/2.2.0/launch/upcoming/?mode=list&hide_recent_previous=true');
+        const { data } = await axios.get(url);
 
         // cache fetched data
         cache.set("bunny", data);
@@ -39,19 +46,20 @@ app.get('/api/launches/', async (req, res) => {
         // send response
         res.send(data);
     } catch (error) {
-        res.status(500).json({ error: "you broke it." });
+        res.status(500).json({ error: "you broke it.", error });
     }
 });
 
 // Function to refresh the data at a defined interval
 const refreshData = async () => {
     try {
-        const { data } = await axios.get('https://ll.thespacedevs.com/2.2.0/launch/upcoming/?mode=list&hide_recent_previous=true');
+        const { data } = await axios.get(url);
 
         // cache refreshed data
         cache.set("bunny", data);
 
-        console.log("Data refreshed successfully.");
+        const timestamp = new Date().toISOString();
+        console.log(timestamp + ": Data refreshed successfully.");
     } catch (error) {
         console.error("Error refreshing data:", error);
     }
