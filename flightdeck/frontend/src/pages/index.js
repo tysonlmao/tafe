@@ -38,8 +38,8 @@ export default function Home() {
           <br />
           {launches.length > 0 ? (
             launches.map((launch) => (
-              <Link href={`/l/${launch.id}`} className={styles.link}>
-                <div className={styles.item} key={launch.id}>
+              <Link href={`/l/${launch.id}`} className={styles.link} key={launch.id}>
+                <div className={styles.item}>
                   <p className={styles.subtext}>{launch.lsp_name}</p>
                   <h3 className={styles.heading}>{launch.name}</h3>
                   <p className={styles.subtext}>{launch.window_start}</p>
@@ -47,7 +47,7 @@ export default function Home() {
               </Link>
             ))
           ) : (
-            <p>Couldn't find anything.</p>
+            <p>doing cool stuff...</p>
           )}
         </div>
       </div>

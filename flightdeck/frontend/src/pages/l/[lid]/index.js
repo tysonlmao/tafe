@@ -1,18 +1,8 @@
 import Header from "@/components/header";
 import styles from "../../../styles/modules/l.module.css";
-import { useRouter } from "next/router";
 import { useEffect } from "react";
 
 export default function launch() {
-    const router = useRouter();
-    const { lid } = router.query;
-
-    useEffect(() => {
-        if (lid) {
-            // getStuff(lid);
-        }
-    });
-
     return (
         <>
             <div className="">
@@ -24,10 +14,6 @@ export default function launch() {
                             <p>...</p>
                         </div>
                         <div className="col">
-                            <p className="subtext-1 text-center">{ }</p>
-                            <h3 className={`${styles.value} text-center`}>72°F</h3>
-                            <p className="subtext-1 text-center">Window</p>
-                            <h3 className={`${styles.value} text-center`}>17:12 UTC</h3>
                         </div>
                     </div>
                 </div>

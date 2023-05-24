@@ -25,9 +25,11 @@
   color: #f4eee0;
 }
 
-.item:hover {
-  transition: padding 0.3s ease;
-  background-color: black;
-  border: 5px solid #a091a1;
-  padding: 1rem;
+@media only screen and (min-width: 600px) {
+  .item:hover {
+    transition: padding 0.3s ease;
+    background-color: black;
+    border: 5px solid #a091a1;
+    padding: 1rem;
+  }
 }
