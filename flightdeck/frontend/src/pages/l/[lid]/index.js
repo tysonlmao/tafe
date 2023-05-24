@@ -1,8 +1,27 @@
 import Header from "@/components/header";
 import styles from "../../../styles/modules/l.module.css";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 
-export default function launch() {
+import backgroundMusic from "../../../../public/music/The_Quiet_Earth.mp3";
+
+
+export default function launch({ launch }) {
+    const audioRef = useRef(null);
+    const [isButtonHidden, setIsButtonHidden] = useState(false);
+
+    const handlePlayAudio = () => {
+        if (audioRef.current) {
+            audioRef.current.play();
+            setIsButtonHidden(true);
+        }
+    };
+
+    useEffect(() => {
+        const audio = audioRef.current;
+        if (audio) {
+            audio.loop = true; // Enable looping
+        }
+    }, []);
     return (
         <>
             <div className="">
@@ -16,8 +35,12 @@ export default function launch() {
                         <div className="col">
                         </div>
                     </div>
+                    {!isButtonHidden && (
+                        <button onClick={handlePlayAudio} className="btn btn-primary">Play Audio</button>
+                    )}
                 </div>
             </div >
+            <audio ref={audioRef} src="/music/The_Quiet_Earth.mp3" />
         </>
     );
 }
