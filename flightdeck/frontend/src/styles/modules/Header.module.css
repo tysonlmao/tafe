@@ -1,0 +1,8 @@
+.header > * {
+  text-decoration: none;
+  color: #f4eee0;
+}
+
+.header > * :hover {
+  color: #f4eee0;
+}

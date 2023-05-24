@@ -24,6 +24,7 @@ export default function launch({ launch }) {
     }, []);
     return (
         <>
+            <Header />
             <div className="">
                 <div className="site-content">
                     <p className="subtext-1">April 26</p>
