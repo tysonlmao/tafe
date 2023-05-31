@@ -14,7 +14,7 @@ export default function Home() {
 
   async function getStats() {
     try {
-      const res = await axios.get("http://localhost:1000/api/launches");
+      const res = await axios.get("/api/launches");
       setLaunches(res.data.results.slice(0, 5)); // Get the first 5 launches
     } catch (error) {
       console.error(error);

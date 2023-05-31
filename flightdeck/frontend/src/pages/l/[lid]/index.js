@@ -1,27 +1,13 @@
 import Header from "@/components/header";
-import styles from "../../../styles/modules/l.module.css";
 import { useEffect, useRef, useState } from "react";
+import { useRouter } from "next/router";
+import { useContext } from "react";
 
-import backgroundMusic from "../../../../public/music/The_Quiet_Earth.mp3";
-
+const router = useRouter();
+const { id } = router.query;
 
 export default function launch({ launch }) {
-    const audioRef = useRef(null);
-    const [isButtonHidden, setIsButtonHidden] = useState(false);
-
-    const handlePlayAudio = () => {
-        if (audioRef.current) {
-            audioRef.current.play();
-            setIsButtonHidden(true);
-        }
-    };
-
-    useEffect(() => {
-        const audio = audioRef.current;
-        if (audio) {
-            audio.loop = true; // Enable looping
-        }
-    }, []);
+    console.log(id);
     return (
         <>
             <Header />
@@ -36,12 +22,8 @@ export default function launch({ launch }) {
                         <div className="col">
                         </div>
                     </div>
-                    {!isButtonHidden && (
-                        <button onClick={handlePlayAudio} className="btn btn-primary">Play Audio</button>
-                    )}
                 </div>
             </div >
-            <audio ref={audioRef} src="/music/The_Quiet_Earth.mp3" />
         </>
     );
-}
+}   
