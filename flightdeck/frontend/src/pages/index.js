@@ -4,13 +4,46 @@ import styles from "../styles/modules/front.module.css";
 import Header from '@/components/header';
 import axios from 'axios';
 import Link from 'next/link';
+import differenceInSeconds from 'date-fns/differenceInSeconds';
 
 export default function Home() {
   const [launches, setLaunches] = useState([]);
+  const [countdowns, setCountdowns] = useState({});
 
   useEffect(() => {
     getStats();
   }, []);
+
+  function formatCountdown(seconds) {
+    const days = Math.floor(seconds / (3600 * 24));
+    seconds -= days * 3600 * 24;
+    const hrs = Math.floor(seconds / 3600);
+    seconds -= hrs * 3600;
+    const minutes = Math.floor(seconds / 60);
+    seconds -= minutes * 60;
+
+    return (days + " days " + hrs + " hours, " + minutes + " minutes, " + seconds);
+  }
+
+  useEffect(() => {
+    const timerId = setInterval(() => {
+      const newCountdowns = {};
+      launches.forEach((launch) => {
+        const countdown = differenceInSeconds(new Date(launch.window_start), new Date());
+        if (countdown > 0) {
+          newCountdowns[launch.id] = formatCountdown(countdown);
+        } else {
+          newCountdowns[launch.id] = 'Launched';
+        }
+      });
+      setCountdowns(newCountdowns);
+    }, 1000);
+
+    return () => {
+      clearInterval(timerId);
+    };
+  }, [launches]);
+
 
   async function getStats() {
     try {
@@ -18,7 +51,6 @@ export default function Home() {
       setLaunches(res.data.results.slice(0, 5)); // Get the first 5 launches
     } catch (error) {
       console.error(error);
-      // Handle the error here (e.g., set an error state)
     }
   }
 
@@ -42,7 +74,7 @@ export default function Home() {
                 <div className={styles.item}>
                   <p className={styles.subtext}>{launch.lsp_name}</p>
                   <h3 className={styles.heading}>{launch.name}</h3>
-                  <p className={styles.subtext}>{launch.window_start}</p>
+                  <p className={styles.subtext}>{countdowns[launch.id]} seconds left</p>
                 </div>
               </Link>
             ))
