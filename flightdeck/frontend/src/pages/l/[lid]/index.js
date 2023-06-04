@@ -7,7 +7,6 @@ import { useContext } from "react";
 // const { id } = router.query;
 
 export default function launch({ launch }) {
-    console.log(id);
     return (
         <>
             <Header />
