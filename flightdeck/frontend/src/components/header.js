@@ -1,13 +1,14 @@
 import React from "react";
 import styles from "../styles/modules/Header.module.css";
+import Link from "next/link";
 
 export default function header() {
     return (
         <>
             <div className={styles.header}>
-                <a href="/">
+                <Link href="/">
                     <h2 className="text-center mt-5">Flightdeck</h2>
-                </a>
+                </Link>
             </div>
         </>
     );

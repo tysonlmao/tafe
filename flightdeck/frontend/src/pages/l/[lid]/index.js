@@ -3,8 +3,8 @@ import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/router";
 import { useContext } from "react";
 
-const router = useRouter();
-const { id } = router.query;
+// const router = useRouter();
+// const { id } = router.query;
 
 export default function launch({ launch }) {
     console.log(id);
