@@ -13,7 +13,7 @@ git pull https://github.com/tysonlmao/tafe
 ## Usage
 
 ```bash
-cd ./tafe/flightdeck/frontend
+cd ./tafe/flightdeck/
 
 # install dependancies
 npm i
