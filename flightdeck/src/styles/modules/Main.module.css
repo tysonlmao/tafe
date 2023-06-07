@@ -10,6 +10,7 @@
 }
 
 .outline {
+  min-height: 600px;
   border: 1px solid #fdcedf;
   border-radius: 0.25rem;
   padding: 1rem;
