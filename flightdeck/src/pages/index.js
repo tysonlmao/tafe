@@ -1,10 +1,11 @@
 import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
-import styles from "../styles/modules/front.module.css";
+import styles from "../styles/modules/Main.module.css";
 import Header from '@/components/header';
 import axios from 'axios';
 import Link from 'next/link';
 import differenceInSeconds from 'date-fns/differenceInSeconds';
+import { TwitterTimelineEmbed } from 'react-twitter-embed';
 
 export default function Home() {
   const [launches, setLaunches] = useState([]);
@@ -48,6 +49,7 @@ export default function Home() {
   async function getStats() {
     try {
       const res = await axios.get("/api/launches");
+      console.log(res);
       setLaunches(res.data.results.slice(0, 5)); // Get the first 5 launches
     } catch (error) {
       console.error(error);
@@ -62,26 +64,45 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Header />
+      <div className="site-content">
+        <div className="d-flex row">
+          <div className="col">
+            <aside className={styles.aside}>
+              <h3>Latest from @SpaceX</h3>
+              <TwitterTimelineEmbed
+                sourceType='profile'
+                screenName='SpaceX'
+                options={{ height: 600 }}
+              />
+            </aside>
+          </div>
+          <div className="col">
+            <div className={styles.outline}>
+              <h3>Next up</h3>
+              <br />
 
-      <div>
-        <Header />
-        <div className="site-content">
-          <h3>Next up</h3>
-          <br />
-          {launches.length > 0 ? (
-            launches.map((launch) => (
-              <Link href={`/l/${launch.id}`} className={styles.link} key={launch.id}>
-                <div className={styles.item}>
-                  <p className={styles.subtext}>{launch.lsp_name}</p>
-                  <h3 className={styles.heading}>{launch.name}</h3>
-                  <p className={styles.subtext}>{countdowns[launch.id]} seconds left</p>
-                </div>
-              </Link>
-            ))
-          ) : (
-            <p>doing cool stuff...</p>
-          )}
+              {launches.length > 0 ? (
+                launches.map((launch) => (
+                  <Link href={`/l/${launch.id}`} className={styles.link} key={launch.id}>
+                    <div className={styles.item}>
+                      <p className={`${styles.subtext} text-center `}>{launch.lsp_name}</p>
+                      <h3 className={`${styles.heading} text-center`}>{launch.mission}</h3>
+                    </div>
+                  </Link>
+                ))
+              ) : (
+                <>
+                  <p>contacting mission control</p>
+                  <div class="spinner-border" role="status">
+                    <span class="visually-hidden">contacting mission control</span>
+                  </div>
+                </>
+              )}
+            </div>
+          </div>
         </div>
+
       </div>
     </>
   );

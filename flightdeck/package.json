@@ -19,6 +19,7 @@
     "next-images": "^1.8.5",
     "node-cache": "^5.1.2",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-twitter-embed": "^4.0.4"
   }
 }

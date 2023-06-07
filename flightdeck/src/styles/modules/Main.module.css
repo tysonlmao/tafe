@@ -1,0 +1,38 @@
+.item {
+  font-family: "Quinquefive", system-ui;
+  border: 3px solid #f2bed1;
+  border-radius: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.item:hover {
+  background-color: #fdcedf30;
+}
+
+.outline {
+  border: 1px solid #fdcedf;
+  border-radius: 0.25rem;
+  padding: 1rem;
+  /* min-height: 100vh; */
+}
+
+.heading {
+  font-size: 1.5rem;
+  margin: 5px 0 5px 0;
+}
+
+.subtext {
+  color: #f2bed1;
+  margin: 0;
+}
+
+.link {
+  text-decoration: none;
+  color: #f4eee0;
+}
+
+@media only screen and (min-width: 600px) {
+  .heading {
+    font-size: 1.5rem;
+  }
+}
