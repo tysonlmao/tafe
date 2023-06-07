@@ -7,9 +7,6 @@ import styles from "../../../styles/modules/Stats.module.css";
 
 export default function launch({ launch }) {
 
-    const router = useRouter();
-    const { id } = router.query;
-
     async function getStats() {
         try {
             const res = await axios.get("/api/launch");
