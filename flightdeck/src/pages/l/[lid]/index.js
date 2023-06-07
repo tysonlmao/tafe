@@ -17,11 +17,6 @@ export default function launch({ launch }) {
         }
     }
 
-    useEffect(() => {
-        getStats();
-    }, []);
-
-
     let imageUrl = "https://spacelaunchnow-prod-east.nyc3.digitaloceanspaces.com/media/launcher_images/falcon_9_block__image_20210506060831.jpg";
     return (
         <>
