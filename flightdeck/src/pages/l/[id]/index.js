@@ -1,23 +1,33 @@
-import Header from "@/components/header";
-import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/router";
-import { useContext } from "react";
-import axios from "axios";
+import Header from "@/components/header";
 import styles from "../../../styles/modules/Stats.module.css";
+import axios from "axios";
 
-export default function launch({ launch }) {
+export async function getServerSideProps(context) {
+    const { id } = context.query;
 
-    async function getStats() {
-        try {
-            const res = await axios.get("/api/launch");
-            console.log(res);
-            setLaunches(res.data.results.slice(0, 5)); // Get the first 5 launches
-        } catch (error) {
-            console.error(error);
-        }
-    }
+    const response = await axios.get(`https://ll.thespacedevs.com/2.2.0/launch/${id}/`);
+    console.log(response.data);
+
+    let launch = response.data;
+
+    return {
+        props: {
+            launch,
+        },
+    };
+}
+
+export default function LaunchPage({ launch }) {
+    // const router = useRouter();
+    // const { id } = router.query;
+    console.log(launch);
+    // if (!id) {
+    //     return <div>Loading...</div>;
+    // }
 
     let imageUrl = "https://spacelaunchnow-prod-east.nyc3.digitaloceanspaces.com/media/launcher_images/falcon_9_block__image_20210506060831.jpg";
+
     return (
         <>
             <div className="row">
@@ -55,4 +65,4 @@ export default function launch({ launch }) {
             </div>
         </>
     );
-}   
+}

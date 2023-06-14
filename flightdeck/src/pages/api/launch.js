@@ -12,7 +12,8 @@ export default async function (req, res) {
     } else {
         // Fetch new data
         try {
-            const { data } = await axios.get(`${url}${lid}`);
+            // Notice the change here:
+            const { data } = await axios.get(`${url}/${lid}`);
             // cache data
             cache[lid] = {
                 data: data,

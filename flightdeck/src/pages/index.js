@@ -68,16 +68,6 @@ export default function Home() {
       <Header />
       <div className="site-content mt-2">
         <div className="d-flex row">
-          <h3>Latest from @SpaceX</h3>
-          <div className="col">
-            <aside className={styles.aside}>
-              <TwitterTimelineEmbed
-                sourceType='profile'
-                screenName='SpaceX'
-                options={{ height: 600 }}
-              />
-            </aside>
-          </div>
           <div className="col">
             <div className={styles.outline}>
               <h3>Next up</h3>
@@ -102,6 +92,16 @@ export default function Home() {
               )}
             </div>
           </div>
+          {/* <div className="col">
+            <aside className={styles.aside}>
+              <TwitterTimelineEmbed
+                sourceType='profile'
+                screenName='SpaceX'
+                options={{ height: 600 }}
+              />
+            </aside>
+          </div> */}
+
         </div>
         <pre className="text-sm mt-3">spaceX wants to go to mars - which is a barren dessert rock with no nandos so no one actually cares</pre>
         <Footer />
