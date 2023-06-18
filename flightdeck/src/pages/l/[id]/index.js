@@ -1,7 +1,8 @@
-import { useRouter } from "next/router";
 import Header from "@/components/header";
 import styles from "../../../styles/modules/Stats.module.css";
 import axios from "axios";
+import { useState, useEffect } from "react";
+// just read the instructions
 
 export async function getServerSideProps(context) {
     const { id } = context.query;
@@ -14,19 +15,37 @@ export async function getServerSideProps(context) {
     return {
         props: {
             launch,
+            init_time: launch.window_start
         },
     };
 }
 
-export default function LaunchPage({ launch }) {
-    // const router = useRouter();
-    // const { id } = router.query;
-    console.log(launch);
-    // if (!id) {
-    //     return <div>Loading...</div>;
-    // }
+export default function LaunchPage({ launch, init_time }) {
+    let imageUrl = launch.image;
+    console.log(launch); // debug
 
-    let imageUrl = "https://spacelaunchnow-prod-east.nyc3.digitaloceanspaces.com/media/launcher_images/falcon_9_block__image_20210506060831.jpg";
+    const timeRemaining = () => {
+        const window_start = launch.window_start;
+        const totalSeconds = Math.floor((Date.parse(window_start) - Date.now()) / 1000);
+
+        const hours = Math.floor(totalSeconds / 3600);
+        const minutes = Math.floor((totalSeconds % 3600) / 60);
+        const seconds = Math.floor(totalSeconds % 60);
+
+        return { totalSeconds, hours, minutes, seconds };
+    };
+
+    const [countdown, setCountdown] = useState(timeRemaining());
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCountdown(timeRemaining());
+        }, 1000);
+
+        return () => clearInterval(interval);
+    }, [launch.window_start]);
+
+    const formatTime = (time) => (time < 10 ? `0${time}` : time);
 
     return (
         <>
@@ -37,25 +56,25 @@ export default function LaunchPage({ launch }) {
                         <div className={styles.item}>
                             <div className="row d-flex">
                                 <div className="col">
-                                    <h2 className={styles.heading}>mission</h2>
+                                    <h2 className={styles.heading}>{launch.mission.name}</h2>
                                 </div>
                                 <div className="col ">
-                                    <h2 className={`${styles.heading} text-end`}>0:00:00</h2>
+                                    <h2 className={`${styles.heading} text-end`}>{formatTime(countdown.hours)}:{formatTime(countdown.minutes)}:{formatTime(countdown.seconds)}</h2>
                                 </div>
                             </div>
-                            <h3 className={styles.sub}>lsp_name</h3>
-                            <h3 className={styles.sub}>mission_type</h3>
+                            <h3 className={styles.sub}>{launch.launch_service_provider.name}</h3>
+                            <h3 className={styles.sub}>{launch.mission.type}</h3>
 
-                            <h3 className={`${styles.heading} mt-5`}>launcher</h3>
+                            <h3 className={`${styles.heading} mt-5`}>{launch.rocket.configuration.full_name}</h3>
 
                         </div>
                         <div className={`${styles.item} mt-2`}>
                             <div className="row">
                                 <div className="col">
-                                    <h2>location</h2>
+                                    <h2>{launch.pad.location.name}</h2>
                                 </div>
                                 <div className="col">
-                                    <h2 className="text-end">??°F</h2>
+                                    <h2 className="text-end">{launch.weahther_concerns}</h2>
                                 </div>
                             </div>
                         </div>
