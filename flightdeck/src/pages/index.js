@@ -26,7 +26,6 @@ export default function Home() {
   }
 
   // notes api
-
   const [note, setNote] = useState('');
 
   /**
@@ -38,22 +37,28 @@ export default function Home() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      const res = await fetch('/api/notes', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ note })
-      });
+    if (note.value !== "") {
+      // if note value isNotEmpty,
+      // continue, else return
+      try {
+        const res = await fetch('/api/notes', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ note })
+        });
 
-      if (res.ok) {
-        console.log("Note sent");
-      } else {
-        console.log("u are die");
+        if (res.ok) {
+          console.log("Note sent");
+        } else {
+          console.log("u are die");
+        }
+      } catch (error) {
+        console.error('something went wrong: fix it... ', error);
       }
-    } catch (error) {
-      console.error('something went wrong: fix it... ', error);
+    } else {
+      return;
     }
   };
 
@@ -103,13 +108,13 @@ export default function Home() {
         </div>
         <>
           <br />
+          <p>send a note to the /api/notes route</p>
           <form className="input-group mb-3" onSubmit={handleSubmit}>
             <input className="form-control" type="text" value={note} onChange={(e) => setNote(e.target.value)} />
             <button type="submit" className="form-control">Save Note</button>
           </form>
         </>
         <pre className="text-sm mt-3">spaceX wants to go to mars - which is a barren dessert rock with no nandos so no one actually cares</pre>
-
       </div>
     </>
   );
