@@ -29,6 +29,12 @@ export default function Home() {
 
   const [note, setNote] = useState('');
 
+  /**
+   * handler for sending notes to the /api/notes route
+   * you can view all notes in this route
+   * https://localhost:3000/api/notes
+   * @param {*} e 
+   */
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -47,7 +53,7 @@ export default function Home() {
         console.log("u are die");
       }
     } catch (error) {
-      console.error('something went wrong: ', error);
+      console.error('something went wrong: fix it... ', error);
     }
   };
 

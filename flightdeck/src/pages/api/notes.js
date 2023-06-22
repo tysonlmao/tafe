@@ -1,5 +1,10 @@
 import db from '../../nedb/db';
 
+/**
+ * 
+ * @param {*} req 
+ * @param {*} res 
+ */
 export default function handler(req, res) {
     if (req.method === 'POST') {
         const { note } = req.body;
