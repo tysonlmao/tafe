@@ -25,6 +25,32 @@ export default function Home() {
     }
   }
 
+  // notes api
+
+  const [note, setNote] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const res = await fetch('/api/notes', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ note })
+      });
+
+      if (res.ok) {
+        console.log("Note sent");
+      } else {
+        console.log("u are die");
+      }
+    } catch (error) {
+      console.error('something went wrong: ', error);
+    }
+  };
+
   return (
     <>
       <Head>
@@ -69,8 +95,14 @@ export default function Home() {
             </aside>
           </div> */}
         </div>
+        <>
+          <br />
+          <form className="input-group mb-3" onSubmit={handleSubmit}>
+            <input className="form-control" type="text" value={note} onChange={(e) => setNote(e.target.value)} />
+            <button type="submit" className="form-control">Save Note</button>
+          </form>
+        </>
         <pre className="text-sm mt-3">spaceX wants to go to mars - which is a barren dessert rock with no nandos so no one actually cares</pre>
-        <Footer />
 
       </div>
     </>
