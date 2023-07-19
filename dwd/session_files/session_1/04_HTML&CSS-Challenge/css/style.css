@@ -4,7 +4,7 @@
 /* ALL BODY */
 body {
   margin: 0px;
-  font-family: 'Source Sans Pro';
+  font-family: "Source Sans Pro";
   background: #202c44;
   color: #ffffff;
   box-sizing: border-box;
@@ -40,7 +40,8 @@ div img {
 }
 
 /* MAIN ARTICLE SECTIONS */
-section, article {
+section,
+article {
   margin: 1rem auto;
   padding: 1rem;
   max-width: 80vw;
