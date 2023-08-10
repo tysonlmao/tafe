@@ -36,6 +36,16 @@
     }
     ?>
     <p><?php echo howOld(17); ?></p>
+    <?php
+    /**
+     * 2023-07-10
+     * Session 4B
+     */
 
+    // ACTIVITY NO.3 
+    // Using variables write an application to find out how many seconds there are in a year.
+    $seconds = 365 * 24 * 60 * 60;
+    echo "seconds in a year: ". $seconds;
+    ?>
 </body>
 </html>
