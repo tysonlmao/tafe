@@ -1,0 +1,60 @@
+[A5] PHP ESSENTIALS [30-45MINS]
+
+INSTRUCTIONS:
+
+Using our knowledge of PHP First Principles, we will build our first basic application - a countdown timer.  
+
+NOTE: You will NOT need to build the HTML / CSS structure, this is to focus on PHP.  You may need to ALTER some of the HTML the challenges, but the overall structure is done for you!
+
+CONCEPTS TO USE:
+
+  - HTML understanding (most HTML & CSS is completed for you!)
+  - php functions
+  - php Arrays 
+  - Math methods 
+  - Outputting data
+
+
+CHALLENGE STEPS
+
+  1. BREAK UP THE TIME INTO DAYS, HOURS, MINUTES & SECONDS [HARD] 
+
+    - IMPORTANT NOTES: 
+    
+      (i) The index.php function has already been pre-built for you, as it deals with date functions, which can be a bit tricky.  
+  
+      (ii) You will need to FINISH OFF the countdown function & will need to think about this carefully.
+
+      (iii) To complete the function, first you need to break up the total seconds ($totalSeconds) between NOW and CHRISTMAS into -- days, hours, mins & seconds
+
+      (iv) USE test.php to test your math calculations, until you get it correct.  Then once happy, input them into index.php and move to Challenge Part 2
+
+    (a) DAYS: You just need to convert the difference from seconds into days using math methods.
+
+    (b) HOURS, MINUTES, SECONDS [HARD]: For each variable:
+
+      (i) FIRST you need to convert the different into its unit of measurement (hour, minute, second); and
+      
+      (ii) SECOND you need to calculate the "MODULUS", which looks for the REMAINDER AFTER DIVIDING a digit by another digit.  It uses the "%" sign and this will be tricky.  Look to the following docs:  
+
+        -> W3: https://www.w3schools.com/php/php_operators.asp
+
+        -> GUIDE: https://code.tutsplus.com/tutorials/how-to-use-the-modulo-operator-in-php--cms-32393
+
+    - FINALLY: Make sure to ROUND DOWN the number to a WHOLE number (you may need to find a math method) 
+
+
+2. RETURN THE VARIABLES 
+
+  - The calculations you had a go at (hopefully completed!), cannot be accessed by our HTML as they are stuck in function block-scope 
+
+  - CHALLENGE: Complete the function to allow the variables of $days, $hours, $mins & $seconds to be accessible outside the function
+
+  - HINT: PHP can only return MULTIPLE variables in an ARRAY
+
+
+3. OUTPUT THE DYNAMIC COUNTDOWN TO HTML 
+
+  - Edit the HTML so it pulls in the dynamic $days, $hours, $mins & $seconds into the correct HTML position
+
+  - HINT: You will need to access the ARRAY & the data at either the set position or its name

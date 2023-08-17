@@ -17,14 +17,14 @@
     // If Alex's age is greater than or equal to 30, echo a string saying "Alex is getting old!"
     $alex = 31;
     if ($alex > 30) {
-        echo "<p>Alex is getting old</p>";
+        // echo '<p>Alex is getting old</p>';
     }
 
     // combining operators
     $age = 18;
-    if($age != 18 || $age < 18) {
-        // return "is 17";
-        echo "ur bad, no alcohol for u";
+    // if($age != 18 || $age < 18) {
+    if($age >= 18) {
+        // echo "ur bad, no alcohol for u";
     }
 
     // if else statement
@@ -33,18 +33,21 @@
     if ($foo != "John") {
         return 0;
     } else {
-        echo "<p>🔥</p>";
+        // echo "<p>🔥</p>";
     }
     
     // else if 
-    $yea = 19;
-    if ($yea == 19) {
-        echo "<p>is 19</p>";
-    } elseif ($yea === 19) {
-        echo "<p>really equal</p>";
+    $yea = 17;
+    if ($yea === 19) {
+        $result = "is 19";
+    } elseif ($yea == 19) {
+        $result =  "really not equal";
     } else {
-        "<p>not 19</p>";
+       $result = "not 19";
     }
+
+    echo '<p>'.$result.'</p>';
+
     ?>
 
     
