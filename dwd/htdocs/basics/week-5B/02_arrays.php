@@ -32,6 +32,7 @@
     if(in_array('green', $colours)) {
         echo "is green exists";
     }
+
     ?>
 </body>
 </html>
