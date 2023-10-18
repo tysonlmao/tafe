@@ -1,0 +1,65 @@
+[C3] BASIC CONTENT MANAGEMENT SYSTEM [BASIC CMS]
+
+IMPORTANT: MAKE SURE TO TEST AFTER EACH MAJOR STEP!
+
+A. REVIEW BASE HTML + FORM STRUCTURE (as provided in Basic CMS_Start) 
+  (1) ALTERATIONS TO EXISTING LOGIN FILES
+    (a) OVERALL
+      - Applied in-line CSS to all containers (except main Header container) to set max width to 1000px (makes it more like a confined blog site)
+      - Applied consistent CSS Bootstrap attributes to all containers (all forms are in bg-light with p-4 (padding))
+      - Added a few new lines in styles.css to cover upcoming new elements
+
+    (b) INCLUDES & TEMPLATES FOLDER FILES
+      - Code notes from previous class have been simplified.  If you want in-depth notes on the Login System, use the ones from the Login System classes.
+
+    (c) MAIN DISPLAY FILES: header.php/index.php/signup.php
+      - Code notes from previous class have been simplified.  If you want in-depth notes on the Login System, use the ones from the Login System classes.
+
+
+  (2) NEW HTML FILES:
+    (a) MAIN POST PAGE (post.php) 
+      - Basic card which acts as a clean way to display content, such as a combination of images, text & buttons
+      - It will display the data that we are saving to the DB via our createposts form
+      - NOTE: Also contains an "admin" section, which will eventually will show edit/delete buttons ONLY when logged in
+
+      -> CARD DOCUMENTATION: https://getbootstrap.com/docs/5.0/components/card/
+
+    (b) CREATING POST PAGE (createpost.php)
+      - Sets action to call "createpost.inc.php" includes file & uses POST method
+      - Basic form group takes: Title, Image URL, Comment, Website URL & Website Title
+      --> NOTE: Comment section uses textarea element rather than input - note the differences
+      - Submit button (name attribute of "post-submit")
+
+    (c) EDIT POST PAGE (editpost.php)
+      - NOTE: VERY SIMILAR TO createpost.php, BUT small subtle differences
+
+      - Sets action to call "EDITpost.inc.php" includes file & uses POST method
+      - Form takes the same data as createpost.php BUT now sets the value (for timebeing, as a template value)
+      - Submit button (NOTE: difference of name attribute to "edit-submit")
+
+
+B. SETUP OF DATABASE TO ACCEPT POST DATA
+  - [CLASS CHALLENGE: 10-15MINS]
+  - We need to go to phpMyAdmin and ADD to our existing "loginsystem" DB, by creating a new table, as we need to accept the posts data via POST
+
+  (1) Go to "loginsystem" database (i.e. "USE loginsystem"), using SQL
+
+  (2) Create a table called "posts" with the following columns: 
+    -> "id" (primary key, type: int(11))
+    -> "title" (type: tinytext)
+    -> "imageurl" (type: text)
+    -> "comment"(type: text)
+    -> "websiteurl"(type: text)
+    -> "websitetitle" (type: tinytext)
+    
+    NOTE: Only primary key is NOT NULL & AUTO_INCREMENT
+
+  (3) Manually insert one new row into the database (using SQL):
+    -> id = 1
+    -> title = Test
+    -> imageurl = https://images.unsplash.com/photo-1575425186775-b8de9a427e67?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1234&q=80
+    -> comment = Test comment
+    -> websiteurl = https://images.unsplash.com/photo-1575425186775-b8de9a427e67?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1234&q=80
+    -> websitetitle = unsplash
+
+  NOTE: There is a SQL text export of the ENTIRE completed CMS database (with more data) in case you get stuck / need the solution!

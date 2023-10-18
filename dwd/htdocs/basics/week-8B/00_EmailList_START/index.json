@@ -1,0 +1,10 @@
+{
+    "$schema": "https://json.schemastore.org/typings",
+    "pdad": {
+        "array1": [
+            "item 1",
+            "item2",
+            "item3"
+        ]
+    }
+}

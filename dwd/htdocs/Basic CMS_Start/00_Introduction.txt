@@ -1,0 +1,40 @@
+[C3] BASIC CONTENT MANAGEMENT SYSTEM [BASIC CMS]
+
+OVERVIEW
+  - PREVIOUS: We created the session management needed to house our CMS System on
+  - NOW: We will incorporate services into our Login System, to turn it into a proper content management system that offers a posting function, much like a Blog system used by WordPress
+
+  - NOTE: Many steps we will write will begin to become repeatative or occur in more than one place.  That will help us remember the way we should be writing these scripts & our application!
+  
+
+BROAD STEPS:
+  [REVISION STEPS]:
+
+  (A) Review our HTML & Form Structure (as provided in Basic CMS_Start) 
+    - NOTE ALTERATIONS: overall (incl. styles.css), includes folder (simplified code notes), header.php/index.php/signup.php (simplified code notes)
+    - TEMPLATES folder used for header & footer (note the changes in relative paths to these partial components)
+    - NOTE NEW: 
+      -> createpost.php
+      -> posts.php
+      -> editpost.php
+
+  (B) Setup Database to Accept Post Data [Class Exercise: 10-15mins]
+    - New "posts" table with new columns
+    - New dummy data for timebeing
+
+  [NEW STEPS]:
+
+  (C) Setup CREATEPOST Feature & Dynamic Error Messages (createpost.inc.php)
+
+  (D) Setup Dynamic Posts Page
+
+  (E) Delete Posts Function
+
+  (F) Edit Posts Function
+
+  (G) Test the Mini-CMS Application
+
+  (H) Challenges + Enhancements
+
+ADDITIONAL RESOURCES
+  - Daniel Fitzsimmons Guide to CMS: https://youtu.be/2HOaDQnbZLE

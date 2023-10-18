@@ -1,0 +1,68 @@
+[C3] BASIC CONTENT MANAGEMENT SYSTEM [BASIC CMS]
+- NOTE: For most working notes on steps - see the relevant files which have notes under each step.  This is just an overall guide to help locate correct file at different stages!
+
+IMPORTANT: MAKE SURE TO TEST AFTER EACH MAJOR STEP!
+
+
+C. SETUP CREATE POST FEATURE & DYNAMIC ERROR MESSAGES (IN createpost.php -> createpost.inc.php)
+  (0) Look at the form and note the ACTION (to createpost.inc.php), METHOD (of post) and input NAMES: title, imageurl, comment, websiteurl, websitetitle
+    - These will show where the form data will go and how we need to store it!
+
+  -- CREATE & GO TO createpost.inc.php --
+
+  (1) Start Session
+  (2) Check user clicked submit button from createpost form + user is logged in
+  (3) Connect to database
+  (4) Collect & store POST data
+  (5) Validation (error handling)
+    - NOTE: In this case we simplified the validation to just one check (for empty fields).  You could anticipate more (i.e. invalid URL, etc.) but we will keep the validation simple in this case, as we have explored it in detail during the Login System!
+
+  (6) Save Post to DB using Prepared Statements
+    (i) Declare Template SQL with ? Placeholders to save values to table
+    (ii) Init SQL statement
+    (iii) Prepare + send statement to database to check for errors
+    (iv) SUCCESS: Bind our user data with statement + escape strings
+    (v) Execute the SQL Statement with user data
+    (vi) SUCCESS: Post is saved to "posts" table - redirect with success message
+
+  (7) Restrict Access to Script Page
+    - NOTE: For example, to access this script, user MUST be LOGGED IN & MUST CLICK SUBMIT 
+
+  -- RETURN TO createpost.php --
+
+  (8) Dynamic Error Message
+    - NOTE: This will be SIMILAR but NOT the same as signup.php.
+    (i) Empty fields validation
+    (ii) Internal server error (sqlerror)
+    (iii) Error Message
+
+    (iv) SUCCESS MESSAGE: Post saved successfully to DB -> NOT on this page.  We redirect them to posts.php, so we will need to add it there LATER!
+
+
+D. SETUP DYNAMIC POSTS PAGE (posts.php)
+  (0) Structure of Page: Card Display (as mentioned) - will hold image, text & button with link to a website
+
+  (1) Query Database for ALL Posts 
+    - NOTE: No need for prepared statements - NOT posting data from users to DB.  Simply requesting data from DB to be displayed = NO SQL INJECTIONS POSSIBLE!
+
+    (i) Connect to Database
+    (ii) Declare SQL command to DB to retrieve ALL rows from posts table in DB
+    (iii) Call query & store result in variable
+
+  (2) Check for returned POSTS result and display on success
+    (i) Success: Display Posts
+    (ii) Error: Template Error Message 
+    (iii) Close Connection
+
+  (3) LOOP DATA INTO OUR BOOTSTRAP CARD TEMPLATE
+    (i) New variable with default state
+    (ii) Take result -> convert to array & then insert into While Loop
+    (iii) Echo out the result of the loop
+      -> NOTE: PROBLEM - Every time loop runs, we essentially assign HTML to output.  This means, everytime we loop, we keep replacing output over and over with the latest card. 
+      -> FIXED: We can tell php to JOIN each card onto each other above in (iv) using ".="
+    
+    (iv) Join output cards together with .=
+    (v) Dynamic Data into Cards using Concatenation of Variables
+    (vi) Restrict Edit/Delete Button ONLY to logged in users (can see by default!)
+    (vii) Setup Edit/ Delete Pages
+      -> NOTE: Whilst pages don't function yet - we can set it up by passing in id of the post to the href url via query string

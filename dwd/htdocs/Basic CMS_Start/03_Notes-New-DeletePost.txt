@@ -1,0 +1,36 @@
+[C3] BASIC CONTENT MANAGEMENT SYSTEM [BASIC CMS]
+- NOTE: For most working notes on steps - see the relevant files which have notes under each step.  This is just an overall guide to help locate correct file at different stages!
+
+IMPORTANT: MAKE SURE TO TEST AFTER EACH MAJOR STEP!
+
+
+E. DELETE POSTS FUNCTION (deletepost.inc.php)
+  (0) NOTE: In posts.php, we set a url to deletepost.inc.php in our post admin button.  We will use this to fire the script to delete the post from the DB
+
+  -- CREATE & GO TO deletepost.inc.php --
+
+  (1) Check User is Logged In + Id passed in via GET
+    -> NOTE: ESSENTIAL that user is logged in before they can delete (this is known as proper authorisation!) 
+
+  (2) Restrict Access to Script Page
+  (3) Connect to DB
+  (4) Collect & store POST data
+  (5) Check that data is an integer 
+  (6) Delete Post from DB (Prepared Statements)
+    (i) Declare Template SQL with ? Placeholders to delete values from table
+    (ii) Init SQL statement
+    (iii) Prepare + send statement to database to check for errors
+    (iv) SUCCESS: Bind our user data with statement + escape integer
+    (v) Execute the SQL Statement (to run in DB)
+    (vi) SUCCESS: Post is deleted from "posts" table - redirect with success message
+
+  -- GO TO posts.php --
+
+  (7) Dynamic Error Message for DELETE
+    -> NOTE: We break apart the previous scripts for our post display, as we want the success/error messages to appear BELOW the connection message.
+
+
+[CLASS CHALLENGE]: Dynamic Success Message for CREATEPOST
+  -> As discussed in 02-C, our successful creation of posts gets redirected to the POSTS.php page.  
+  -> Using our previous examples as guidance, try to write in a success alert for the creation of a post JUST ABOVE the DELETE ALERTS!
+  -> SOLUTION: Included in Basic CMS_Finished!

@@ -1,0 +1,30 @@
+[C2] LOGIN SYSTEM
+
+OVERVIEW
+  - HTTP by default renders web pages as "stateless", meaning on refresh or redirect, the website will forget the user and any information/data they presented
+  - We will create a "stateful" application by creating sessions for the user, via a login system.  
+  - This login system will need to encrypt the login data, being the password using hashing and salting
+
+BROAD STEPS:
+  [REVISION STEPS]:
+
+  (A) Review our Base HTML & Form Structure (as provided in Login System_Start) 
+
+  (B) Separate Base HTML into Requires Files 
+    - Create requires initially for the HEADER.php and the FOOTER.php (outside "includes" folder)
+
+  (C) Setup Database to Accept Login Data [Class Exercise 1: 20-30mins]
+  
+  (D) Setup Database Connection Includes (connect.inc.php) [Class Exercise 2: 15mins]
+
+  [NEW STEPS]:
+
+  (E) Create Sign Up Functionality
+
+  (F) Write-In Signup Dynamic Messages
+
+  (G) Create Login Functionality
+
+  (H) Create Logout Functionality
+
+  (I) Write-In Login/Logout Messages 

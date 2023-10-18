@@ -1,0 +1,35 @@
+[C3] BASIC CONTENT MANAGEMENT SYSTEM [BASIC CMS]
+  - At this point - we should have a mini working Content Management System - YAY!
+
+
+G. TEST THE MINI-CMS APPLICATION
+  - We want to test to make sure all major features are working:
+    -> Logout
+    -> View posts 
+    -> Login 
+    -> Create test post
+    -> Check the link for URL
+    -> Edit test post
+    -> Delete test post
+    -> Then try to break it to test its error handling!
+
+
+H. CHALLENGES & ENHANCEMENTS:
+  (a) Creating New Post with Additional Field
+    -> Update DB to include additional field
+    -> Display new field in view page
+    -> Add to edit post page
+
+  (b) Change Image URL to be an Image Uploader!
+    -> CURRENTLY: We have just an external URL 
+    -> We can use our image uploader application and merge that into this application, where it uploads the file & 
+
+  (c) Improved Features in our UX
+    (i) Error Message for no Rows in posts.php (currently just displaying a string)
+    (ii) Adjust the Nav Menu to only Show Signup when Logged in
+    
+  (d) Improved UI on the Posts page to better show content
+    -> Could incorporate better Bootstrap features such as row/cols to manage the spread OR optimise images better 
+    -> DOCUMENTATION: https://getbootstrap.com/docs/5.0/layout/grid/
+
+  MAIN CONCEPT: Look to extend & enhance to help build your PHP and PROGRAMMING SKILLS!

@@ -1,0 +1,62 @@
+[C2] LOGIN SYSTEM: REVISION STEPS
+
+IMPORTANT: MAKE SURE TO TEST AFTER EACH MAJOR STEP!
+
+A. REVIEW BASE HTML + FORM STRUCTURE (as provided in Login System_Start) 
+  (1) Create HTML & CSS structure for the Home Page 
+    - The Boilerplate header/footer, Bootstrap integration, Nav and Alerts).  
+    -> Bootstrap Elements Used: 
+      -- Basic Nav
+      -- Basic Forms (https://getbootstrap.com/docs/5.1/forms/overview/)
+      -- Modal (NEW!) (https://getbootstrap.com/docs/5.1/components/modal/)
+      -- Alerts
+
+  (2) Create HTML Forms 
+    -> SIGNUP FORM (index.php): 
+      - Sets action to call "signup.inc.php" includes file & uses POST method (sending senstive data)
+      - Basic form group takes: Username, Email Address, Password and a repeat/confirm password
+      - Submit button
+ 
+    -> LOGIN FORM (signup.php):
+      - We create the login form within a HTML component that Bootstrap calls a "Modal", which uses JavaScript behind the curtain to make it popup (as well as other features like making the background darker, etc.)
+      - We will go through more when we write our Login Code
+      - Sets ACTION to call "login.inc.php" includes file and uses POST METHOD (as we're sending sensitive data)
+      - Takes two inputs: email address ("mailuid") and password ("pwd")
+      - Also has a submit button
+
+
+B. CREATE HEADER.PHP & FOOTER.PHP
+  (1) As with previous PHP projects, we create two new files: header.php & footer.php
+    -> Cut everything in index.php up to the HEADER.php comment and copy into the header.php
+    -> Cut everything in index.php from FOOTER.php and copy into footer.php
+    -> Add to "templates" folder
+
+  (2) Create "requires" php scripts, for both header & footer, for both in index.php AND signup.php, as we want to copy across the standard formatting, Bootstrap and nav / footer structures
+    -> REQUIRE is very similar to INCLUDE - sucks in the header and footer into the page where required!
+
+  (3) TEST THAT BOTH SIGNUP & LOGIN HAVE FORMATTED CORRECTLY!
+
+
+C. SETUP OF DATABASE TO ACCEPT LOGIN DATA
+  - [CLASS CHALLENGE: 20-30MINS]
+  - We need to go to phpMyAdmin and create our database & table, as we need to create the "boxes" that will accept the data we are sending via GET from the form
+  - NOTE: To help, use the cheat sheet PDF with all SQL commands!
+
+  (1) Create a database called "loginsystem", using SQL
+
+  (2) Create a table called "users" with the following columns: "idUsers" (primary key, type: int(11)), "uidUser" (type: tinytext), "emailUsers" (type: tinytext) & "pwd"(type: longtext).  Only primary key is NOT NULL & AUTO_INCREMENT
+
+  (3) Manually insert one new row into the database (using SQL):
+    --> User 1: daniel (id = 1), email of daniel@daniel & pwd of $2y$10$Lz6NRGtp5mRsMZ16aMlQ8OXZyFiy8sfcBBcL2OAMGUy
+
+  NOTE: There is a SQL text export of the completed database (with more data & other tables for later projects) in case you get stuck / need the solution!
+
+D. SETUP DATABASE CONNECTION INCLUDES (connect.inc.php)
+  - Like with our previous example, we will create connect.inc.php and setup our database connection
+
+  - [CLASS CHALLENGE: 15MINS]: Setup the Connection file like previous examples using OOP
+  (1) Save our Database Config to Variables to use for our Connection function
+  (2) Create connection variable with database passing in the database configs 
+  (3) Check connection with DB & issue commands to database if successful
+
+  IMPORTANT NOTE: All our "includes" files are designed to be PHP code the user will never see.  The form will send the data to this .inc files, execute it, and redirect back to our display pages like index.php and signup.php

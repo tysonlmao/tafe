@@ -1,0 +1,58 @@
+COMPLEX PHP APPLICATIONS & FEATURES
+
+[C1] IMAGE UPLOADER
+- We will be building an application that browses our files, finds an image file and uploads it to our server in htdocs/www using MAMP or WAMP respectively
+- The application will have a number of error handlers to provide a clean notification if any error occurs during the upload process
+
+A. Review our Form Structure
+  - Standard Bootstrap form with an input field with a "browse" button in-built, label and submit button
+  - FORM: Action calls back same file, POST method and "enctype".  This specifies the form of encoding, which has a set form for files sent by POST!
+  - INPUT: Input type is "file" with a name value of "fileToUpload"
+  - ALERT: We have an empty alert field.  This should show any errors or if we have a successful upload - i.e. it is dynamic!
+  - ALSO NOTE: We have left a space for our php above on line 1 (& inside our dynamic alert field)
+
+
+B. Declare general variables initial states 
+  - Declare our directory where we will store our uploads on our server 
+  - Declare an initial state of whether our upload is successful or not (initial state = true)
+  - Declare an initial state of a message back to the user, whether there is an error or not (initial state = blank)
+
+
+C. Save upload data to variables (using $_FILES superglobal)
+  (1) Store the file name of the temporary copy of the file stored on the server.
+
+  NOTE: Uploaded files sit here whilst the POST submission is running AND UNTIL we specify where it should go (we will do this later!)
+
+  (2) Store name of the uploaded file
+  (3) Store name of file type extension (converted to lower case for better handling)
+  (4) Store our URL path to the uploaded image on the server
+
+
+D. Set custom error handlers
+  (1) File Already Exists
+  (2) Incorrect File Extension
+
+  // NOTE: We could also set if statement to check if message extension is empty ($the_message_ext == "") to check there are no previous errors & stop it overriding $the_message_ext if we already have a error (it does throw a minor error stating it is undefined if there are no errors)
+
+
+E. Set our main error capture & successful upload case 
+  (1) Check for error existing by checking if uploadOk is set to 0 by an error
+  (2) If all ok (remains value of 1) - try to upload file to permanent location
+
+  NOTE: If everything ok, we take the file from the tempoary location and save to the server location, using move_uploaded_file method.  If ok, it will provide back a success message including a dynamic link to server location of image!
+
+
+F. Create Feedback to user in event of nothing, error or success
+  - We echo back the $message variable to the browser as part of the alert element (will include both success or fail)
+
+  NOTE: We have also made this alert an if-statement, so the alert bar only shows when $message is defined, and depending on uploadOk result, a red error alert or a green success alert!
+
+
+G. Set PHP upload errors using superglobal error array within $_FILES
+  (1) We set custom message extensions depending on the number passed in by PHP when an upload error occurs
+
+  REF: http://php.net/manual/en/features.file-upload.errors.php
+
+  (2) Set additional error handler to pick up the PHP error number & pass back the custom message corresponding to the number
+    - $_FILES['fileToUpload']['error'];  this stores the error code if a error occurred inside the variable $the_error.  
+    - To pull the exact error message out of our array, we call the position inside the array that corresponds with the preset PHP error values

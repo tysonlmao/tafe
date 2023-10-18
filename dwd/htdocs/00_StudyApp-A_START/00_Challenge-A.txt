@@ -1,0 +1,54 @@
+[B6] STUDENT APP - CHALLENGE A:
+
+Challenge A: To build the early "StudyTime" application into a functioning, basic PHP application:
+  - Complete the steps below to build the challenge 
+  - We will continue to use this challenge as we build on our PHP & MySQL skills over the next few weeks!
+
+  NOTE: See the Powerpoint & Complex Guide if you need reminders on the StudyTime app OR SQL commands
+
+
+EXERCISE 1: BUILD THE MARKUP FORM
+  (a) Create a basic navbar
+    - You can copy the BT Hotel Navbar or your portfolio if you like 
+    - Only contains one link to Home 
+
+  (b) Create a new index file to hold the form, with the following features:
+    - Has a h2 title and paragraph description on form 
+
+    - IMPORTANT: Has the following inputs: first name (fname), last name (lname), study date (sdate), study hours (shours) & a submit button
+
+    - Use basic CSS to center the form and basic styles
+      --> NOTE: We will use our own CSS, but don't focus on CSS first - focus on the form structure & function.  I will provide a solution with complete CSS, which we will work from 
+
+  (c) Ensure PHP aspects of form are ready:
+    - form element: has an action attribute with a value of "connection.php" & method of "POST"
+    - input elements: have name attributes that relate to the values being submitted 
+    - submit button: has a value of "post-submit"
+
+
+EXERCISE 2: BUILD THE DATABASE 
+  - We need to go to phpMyAdmin and create our database & table to accept the data
+
+  (1) Create a database called "studyTimeApp", using SQL
+  (2) Create a table called "tblDailyStudyTime" with the following columns: "sid" (primary key), "fname", "lname", "sdate" & "shours" - have a go determining the data types & additional information (like NOT NULL etc.)
+
+
+EXERCISE 3: BUILD THE SCRIPT PAGE - CONNECTION.PHP TO MANAGE THE FORM SUBMISSION
+  (a) Create php file called "connection.php"
+    - Build in the standard HTML Boilerplate
+    - Include external stylesheet
+    - Include the navbar from your index.php 
+
+  (b) Create a PHP section below the navbar and cover the following PHP functions, similar to the enquiry form:
+    (1) Save our Database Config to Variables
+    (2) Save Connection Variable
+    (3) Call connection with DB
+    (4) SQL Validation
+      - BONUS 2ND VALIDATION: Using if-else conditionals, see if you can also check for EMPTY form fields (REMINDER: you can use the PHP function "empty" to help!)
+
+    (5) Save SQL Command to Variable
+    (6) Issue our query to DB
+
+AND THEN TEST!
+
+- ADDITIONAL: If you finish early - you can try to enhance the styling across your application OR compare with the final version to see!

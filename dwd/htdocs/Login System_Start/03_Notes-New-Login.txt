@@ -1,0 +1,79 @@
+[C2] LOGIN SYSTEM: NEW STEPS
+- NOTE: For most working notes on steps - see the relevant files which have notes under each step.  This is just an overall guide to help locate correct file at different stages!
+
+PROGRAMMING STYLE: In this example we will use OBJECT-ORIENTED PROGRAMMING (OOP):
+
+  - mysqli class: https://www.php.net/manual/en/class.mysqli.php
+
+  - mysqli_stmt class: https://www.php.net/manual/en/class.mysqli-stmt.php
+
+IMPORTANT: MAKE SURE TO TEST AFTER EACH MAJOR STEP!
+
+
+G. CREATE LOGIN FUNCTIONALITY (IN header.php -> login.inc.php)
+  (0) Look at form (inside Modal) and note the ACTION (to login.inc.php), METHOD (of post) and input NAMES: mailuid & pwd
+    - These will show where the form data will go and how we need to store it!
+    - NOTE: Modal is called when the button in the menu is clicked (linked by an id).  We store the form in this popup!
+
+  -- CREATE & GO TO login.inc.php --
+
+  (1) Check user clicked submit button on Login Form
+  (2) Connect to database
+  (3) Collect & store the POST username + password in variables
+  (4) Check username and password fields are not blank
+  (5) Check if User Exists in Database WHERE No Form Error
+    - Again, we use prepared statements to stage the query to DB
+
+    (i) Declare SQL for finding the user in the database
+    (ii) Init SQL statement
+    (iii) Prepare + send statement to database to check for errors
+    (iv) On success - Bind our user data with statement & run SQL statement 
+    (v) Execute the SQL Statement with user data
+    (vi) Return result & store in variable
+
+  (6) Check $result to see if a user EXISTS in DB
+    - NOTE: We convert the result from DB to an array & query what is stored in it
+    - NOTE on OOP: You could keep finding nested objects & pulling methods:
+
+    - if($row = $result->fetch_assoc()) 
+
+    - In this case, we will avoid to keep it limited to two classes/objects for simplicity
+
+    (i) Confirm User exists - BUT Password is NOT a match using bcrypt
+    (ii) User exists - Password match & init session
+    (iii) Otherwise catch all for unexpected error (very remote!)
+    (iv) Or error if no user was found in DB
+
+  (7) Close of the Query
+
+
+H. CREATE LOGOUT FUNCTIONALITY (IN header.php -> logout.inc.php -> header.php)
+  (1) Setup Logout Button 
+    - This includes a form that sends the button action to logout.inc.php to confirm logout of session
+
+  -- CREATE & GO TO logout.inc.php --
+
+  (2) Start session
+    - NOTE: We need to start the session as we can not end it if it not started.  As we are only starting it on the header.php we need to add it here as we are not using the header.
+
+  (3) Take all session values in $_SESSION variable and remove
+  (4) End session
+  (5) Send user back to the home page
+
+  -- GO BACK TO header.php --
+
+  (6) Wrap Logout & Login Button in Conditional Statement
+  (7) GO TO TOP of header.php & start session to access $_SESSION! 
+  (8) Setup Conditional Create Post Button (non-functional page ... yet!)
+
+
+I. WRITE-IN LOGIN/LOGOUT MESSAGES (IN index.php & IN header.php)
+  (1) Conditional Logged in/out Alerts (index.php)
+    - NOTE: Similar to our Menu buttons, we wrap it inside an if statement checking for the $_SESSION global variable 
+
+  (2) Error Messages during Login Process (header.php)
+    - LOCATION: Scroll right to BOTTOM of header where we left <main> container space for the errors!
+
+    - NOTE: We classed these as "loginerror" not "error" to prevent PHP error messages
+    - As with previous examples, will display appropriate error/success message in Bootstrap Alert using if-else condtionals
+

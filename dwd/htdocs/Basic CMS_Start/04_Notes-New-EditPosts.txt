@@ -1,0 +1,102 @@
+[C3] BASIC CONTENT MANAGEMENT SYSTEM [BASIC CMS]
+- NOTE: For most working notes on steps - see the relevant files which have notes under each step.  This is just an overall guide to help locate correct file at different stages!
+
+IMPORTANT: MAKE SURE TO TEST AFTER EACH MAJOR STEP!
+
+
+F. EDIT POSTS FUNCTION (editpost.php)
+  (0) NOTE: At the minute, on posts.php, when we click on the "EDIT" button, we are taken to the editpost.php page with the id of the post passed in via GET as a query string!  We need to turn this into pre-populated data! 
+
+  -> ALSO NOTE: The form editpost.php sets an action to editpost.inc.php to process the updated data, via POST, but otherwise mirrors our createpost.php
+
+
+  [CHALLENGE - HARD] TRY TO SETUP THE EDIT FUNCTIONALITY 
+    -> This will be a bit tricky, so try to build it with the following steps in mind.
+    -> NOTE: The solutions are posted as part of Basic CMS_Finished if you get stuck (see editpost.php for full notes!)
+
+  [STEPS TO COMPLETE EDIT FUNCTION]
+
+    [GET BY ID ("PRE-POPULATION")]
+    (a) Extract the id from the query string in URL address (SOLUTION: 1-5)
+    (b) Write SQL statement to search database for the exact post with that id (SOLUTION: 6)
+      -> HINT: These TWO STEPS will be VERY similar to how we setup our deletepost.inc.php structure using id!
+
+    (c) Display the results inside the input fields USING the "value" attribute (SOLUTION: 7)
+      -> HINT: This will be VERY similar to how we pre-populated data in our signup.php when we passed back email / usernames on errors!
+
+    [UPDATE BY ID ("EDIT POST")]
+    (d) Once user clicks submit button, it will send the action to a script to process (SOLUTION: 8)
+      -> HINT: CREATE editpost.inc.php
+      -> HINT: This will be VERY similar to many of our previous forms BUT you will need to include the id with the form data via GET [HARD]
+
+    (e) Edit Script will Save the Changed Data to Database (SOLUTION: 9-14)
+      -> HINT: This will be EXTREMELY similar to createpost.inc.php, but includes the $id as well, like in deletepost.inc.php
+
+    (f) Create Dynamic Alerts (Error + Success) (SOLUTION: 15-16)
+      -> HINT: This will be like our previous error / success dynamic messages!
+
+
+  [DETAILED SOLUTION]
+
+  [GET BY ID ("PRE-POPULATION")]
+  
+  (1) Check User is Logged In + Id passed in via GET
+  (2) Restrict Access to Edit Page
+    -> IMPORTANT - NOTE we are NOT going up a directory with redirect as script is run on a display page!  
+    -> Same for any Errors!
+  
+  (3) Connect to DB
+  (4) Declare variable called $row to store array with our DB data to display (later)
+  (5) Collect, escape string & store POST data
+  (6) Declare SQL command to extract data from DB relating to post id (Prepared Statements)
+    (i) Declare Template SQL with ? Placeholders to select values for SPECIFIC post id
+    (ii) Init SQL statement
+    (iii) Prepare + send statement to database to check for errors
+    (iv) SUCCESS: Bind our user data with statement
+    (v) Execute the SQL Statement (to run in DB)
+    (vi) SUCCESS: Store result & convert to array 
+
+  (7) PRE-POPULATE data IF we have it from the $row variable in form below
+    -> NOTE: No need for an if statement, as you can ONLY access the editpost page, if you have passed the id & fired the script!    
+
+  [UPDATE BY ID ("EDIT POST")]
+
+  (8) Send ID via GET ALONG with our POST form data
+    -> CURRENTLY: On hitting submit button (name of "edit-submit"), the POST data will go to editpost.inc.php to call the script to update the DB
+    -> HOWEVER: We have NOT passed along the id with the form data (currently only stored in a variable of $id in editpost.php).  
+
+    -> SOLUTION: We attach it to the action using php to make it dynamic: action="includes/editpost.inc.php?id=<?php echo $id ?>"
+
+  -- CREATE & GO TO editpost.inc.php --
+
+  (9) Check User Clicked Edit-Submit Button + Logged In
+  (10) Restrict Access to Edit Script Page
+  (11) Connect to DB
+  (12) Collect & store POST data
+    -> NOTE: We extract EVERYTHING, including the id of the edited post (which we escape).  We want the id, as we want to UPDATE an existing row in our DB, not create a new one! 
+
+  (13) VALIDATION: Check if any fields are empty (v. similar to createpost / login)
+  (14) Save (BY UPDATE) Edited Post to DB using Prepared Statements
+    (i) Declare Template SQL with ? Placeholders to update values for row in posts table (6 PLACEHOLDERS!)
+    (ii) Init SQL statement
+    (iii) Prepare + send statement to database to check for errors
+    (iv) SUCCESS: Bind our user data with statement
+      -> NOTE: We bind FIVE strings and ONE integer!
+
+    (v) Execute the SQL Statement (to run in DB)
+    (vi) SUCCESS: Edited post is updated for specific row in "posts" table - redirect with success message
+
+  -- GO BACK TO editpost.php --
+
+  (15) Dynamic Error Alerts
+    -> NOTE: Very similar to createpost.php (as we also redirect successful post to posts.php!) 
+
+    (i) Empty fields validation 
+    (ii) Internal server error 
+    (iii) Dynamic Error Alert based on Variable Value 
+    (iv). SUCCESS MESSAGE: Post updated successfully to DB -> NOT on this page.  We redirect them to posts.php, so we will need to add it there LATER!
+
+  -- GO TO posts.php --
+
+  (16) Dynamic Success Alert  
+    -> Feed this into our current success alert for creating a new post, as a new "if-else" but seeks $_GET['edit'] == "success" instead!

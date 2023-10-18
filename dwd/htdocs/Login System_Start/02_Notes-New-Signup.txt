@@ -1,0 +1,57 @@
+[C2] LOGIN SYSTEM: NEW STEPS
+- NOTE: For most working notes on steps - see the relevant files which have notes under each step.  This is just an overall guide to help locate correct file at different stages!
+
+PROGRAMMING STYLE: In this example we will use FUNCTIONAL PROGRAMMING
+
+  - mysqli & mysqli_stmt derived functions
+
+  - this is more simple than OOP, as OOP by its nature is harder to understand, but easier to use long term!
+
+IMPORTANT: MAKE SURE TO TEST AFTER EACH MAJOR STEP!
+
+
+E. CREATE SIGN UP Functionality (IN signup.php -> signup.inc.php)
+  (0) Look at the form and note the ACTION (to signup.inc.php), METHOD (of post) and input NAMES: uid, mail, pwd, pwd-repeat 
+    - These will show where the form data will go and how we need to store it!
+
+  -- CREATE & GO TO signup.inc.php --
+
+  (1) Check the user click the submit button from signup form
+  (2) Connect to database
+  (3) Collect & store the POST information in variables
+  (4) Validation Checks (Create 5 Form Errors)
+  (5) Check if User Exists in Database
+    - NOTE: We use "prepared statements" which allow us to setup an SQL statement template & run it against the DB.  We then later bind values to the template SQL.
+    - WHY: Prepared statements reduce query parsing times AND binding values to it REQUIRES use to escape the strings (the "s" parameters!)
+
+    (i) Set SQL and set the placeholder using "?"
+    (ii) Initialise prepared statement in variable
+    (iii) Prepare + send statement to database to check for errors (6th error)
+    (iv) On success - bind our user data with statement  & run SQL statement 
+    (v) Execute the SQL Statement with user data
+    (vi) Return result & store inside the $statement
+    (vii) Check how many rows of results were returned
+
+  (6) No User = We SAVE new user to DB
+    - Use hashing on password
+    - Using prepared statement - then save data to DB
+    - Redirect for successful save
+
+  (7) Close of DB & Route
+
+
+F. WRITE-IN SIGNUP DYNAMIC MESSAGES (IN signup.php)
+  (1) Validation: 
+    - Check for the different error messages we passed with the redirect as a query string, from signup.inc.php
+    - 6 Different Errors in Total
+
+  (2) Success Message 
+    - Search the global $_GET variable for signup=success (passed as query string) & echo success message
+
+  (3) Pre-Fill Form Data in SignUp Form
+    - Create "value" attributes in form for username & email
+    - Use conditional if-else php statements if either the uid or mail is stored in GET superglobal & echo it back!
+
+  (4) TEST Signup Feature
+    - Test for a successful signup
+    - Test for multiple error scenarios

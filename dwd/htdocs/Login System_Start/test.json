@@ -1,0 +1,9 @@
+{
+    "$_POST": {
+        "uid": "test",
+        "mail": "test@test.com",
+        "pwd": "test",
+        "pwd-repeat": "test",
+        "signup-submit": true
+    }
+}

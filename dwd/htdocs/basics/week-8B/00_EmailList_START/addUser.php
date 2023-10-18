@@ -7,7 +7,7 @@ function addUser() {
         echo "Error connecting...";
     }
 
-    $fname = $_GET['fname'];
+    $fname = strval($_GET['fname']); 
     $lname = $_GET['lname'];
     $email = $_GET['email'];
 
